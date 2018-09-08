@@ -1,4 +1,4 @@
-package com.krotos;
+package com.krotos.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
