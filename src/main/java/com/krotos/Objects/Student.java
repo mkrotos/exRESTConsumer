@@ -5,14 +5,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown =true)
 public class Student {
 
-    private long id;
+    private Long id;
     private String name;
     private String passportNumber;
 
     public Student() {
     }
 
-    public Student(long id, String name, String passportNumber) {
+    public Student(Long id, String name, String passportNumber) {
 
         this.id = id;
         this.name = name;
@@ -32,7 +32,7 @@ public class Student {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
