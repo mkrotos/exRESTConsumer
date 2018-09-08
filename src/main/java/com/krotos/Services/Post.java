@@ -23,7 +23,7 @@ public class Post {
         HttpEntity<Student> request = new HttpEntity<>(student);
         Student studentAnswer = restTemplate.postForObject(myURL, request, Student.class);
         if (studentAnswer == null) {
-            log.info("addStudent == null. Post unsuccessful --------------------");
+            log.error("addStudent == null. Post unsuccessful --------------------");
         } else {
             log.info(studentAnswer.toString());
         }
@@ -33,14 +33,17 @@ public class Post {
         HttpEntity<Student> request = new HttpEntity<>(student);
         URI location = restTemplate.postForLocation(myURL, request);
         if (location == null) {
-            log.info("addStudent2 == null. Post unsuccessful --------------------");
+            log.error("addStudent2 == null. Post unsuccessful --------------------");
         } else {
             log.info(location.toString());
         }
     }
-    public static void addStudentWithoutId(StudentWithoutId studentWithoutId){
-        HttpEntity<StudentWithoutId> request=new HttpEntity<>(studentWithoutId);
-        URI location=restTemplate.postForLocation(myURL,request);
+
+    //no problems with ID
+    public static void addStudentWithoutId(StudentWithoutId studentWithoutId) {
+        HttpEntity<StudentWithoutId> request = new HttpEntity<>(studentWithoutId);
+        URI location = restTemplate.postForLocation(myURL, request);
         log.info(location.toString());
     }
+
 }

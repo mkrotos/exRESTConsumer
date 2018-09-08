@@ -3,6 +3,7 @@ package com.krotos.Services;
 import com.krotos.Application;
 import com.krotos.Objects.Quote;
 import com.krotos.Objects.Student;
+import com.krotos.Objects.StudentWithoutId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.ParameterizedTypeReference;
@@ -29,8 +30,13 @@ public class Get {
     }
 
     public static void getStudentById(long id) {
-        Student student = restTemplate.getForObject(myURL+"/"+id, Student.class);
+        Student student = restTemplate.getForObject(myURL + "/" + id, Student.class);
         log.info(student.toString());
+    }
+
+    public static void getStudentWithoutIdById(long id) {
+        StudentWithoutId studentWithoutId = restTemplate.getForObject(myURL + "/" + id, StudentWithoutId.class);
+        log.info(studentWithoutId.toString());
     }
 
     public static void getAllStudents() {
