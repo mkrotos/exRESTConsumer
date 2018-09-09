@@ -4,11 +4,10 @@ import com.krotos.Objects.Student;
 import com.krotos.Objects.StudentWithoutId;
 import com.krotos.Services.Get;
 import com.krotos.Services.Post;
+import com.krotos.Services.Put;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class Application {
 
@@ -32,5 +31,9 @@ public class Application {
         StudentWithoutId studentWithoutId = new StudentWithoutId("BezID", "1111");
         Post.addStudentWithoutId(studentWithoutId);
 
+        log.info("---------------------------------------------");
+
+        Put.changeStudentWithoutIdById(studentWithoutId,10001);
+        Put.changeStudentById(new Student(1l,"Changed","999"));
     }
 }
