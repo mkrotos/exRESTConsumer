@@ -5,6 +5,8 @@ import com.krotos.Objects.Student;
 import com.krotos.Objects.StudentWithoutId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.web.client.RestTemplate;
 
 public class Put {
@@ -19,6 +21,11 @@ public class Put {
 
     public static void changeStudentById(Student student){
         restTemplate.put(myURL+"/"+student.getId(),student);
+    }
+
+    public static void changeStudentById2(Student student){
+        HttpEntity<Student> request=new HttpEntity<>(student);
+        restTemplate.exchange(myURL+"/"+student.getId(),HttpMethod.PUT,request,Void.class);
     }
 
 

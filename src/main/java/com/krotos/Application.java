@@ -2,6 +2,7 @@ package com.krotos;
 
 import com.krotos.Objects.Student;
 import com.krotos.Objects.StudentWithoutId;
+import com.krotos.Services.Delete;
 import com.krotos.Services.Get;
 import com.krotos.Services.Post;
 import com.krotos.Services.Put;
@@ -23,8 +24,8 @@ public class Application {
 
         log.info("---------------------------------------------");
 
-        Student student = new Student(5l, "Konrad", "asd12863");
-        Student student2 = new Student(50l, "Pawel", "00000");
+        Student student = new Student(5L, "Konrad", "asd12863");
+        Student student2 = new Student(50L, "Pawel", "00000");
         Post.addStudent(student);
         Post.addStudent2(student2);
 
@@ -34,6 +35,11 @@ public class Application {
         log.info("---------------------------------------------");
 
         Put.changeStudentWithoutIdById(studentWithoutId,10001);
-        Put.changeStudentById(new Student(1l,"Changed","999"));
+        Put.changeStudentById(new Student(1L,"Changed","999"));
+        Put.changeStudentById2(new Student(2L,"Changed2","999999"));
+
+        log.info("---------------------------------------------");
+
+        Delete.deleteById(3);
     }
 }
